@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+@font-face {
+  font-family: 'Runiga';
+  src: url('/fonts/Runiga.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Medino';
+  src: url('/fonts/Medino-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  @apply bg-mithai-off text-mithai-charcoal overflow-x-hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  @apply max-w-full block;
+}
+
+a {
+  @apply no-underline;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+/* Sections */
+.sec {
+  @apply px-[18px] py-[60px] md:px-7 md:py-20 lg:px-10 lg:py-20;
+}
+
+.container {
+  @apply w-full max-w-[1160px] mx-auto px-[18px] md:px-7 lg:px-10;
+}
+
+.sec-label {
+  @apply text-[10px] font-bold tracking-[0.16em] text-mithai-gold uppercase mb-2 block;
+}
+
+.sec-title {
+  @apply font-medino text-[clamp(24px,6vw,42px)] font-normal text-mithai-maroonD leading-[0.95] mb-2.5 tracking-[-0.01em];
+}
+
+.sec-sub {
+  @apply text-sm text-mithai-taupe leading-[1.75] max-w-[520px];
+}
+
+.sec-head {
+  @apply mb-9;
+}
+
+.brand-logo {
+  font-family: 'Medino', serif;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.05;
+  font-feature-settings: "liga" 1, "clig" 1, "onum" 1, "dlig" 1;
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.brand-name {
+  display: block;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 400;
+}
+
+.brand-suffix {
+  display: block;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 300;
+  letter-spacing: 0.26em;
+  margin-top: -0.12rem;
+}
+
+.btn-primary {
+  @apply inline-flex items-center gap-2 bg-mithai-maroon text-white px-7 py-[13px] rounded-full text-sm font-semibold tracking-[0.03em] shadow-[0_4px_18px_rgba(107,31,31,0.32)] transition-all duration-[220ms] no-underline;
+}
+
+.btn-primary:hover {
+  @apply bg-mithai-maroonL shadow-[0_10px_32px_rgba(107,31,31,0.45)] -translate-y-0.5;
+}
+
+.btn-outline {
+  @apply inline-flex items-center gap-2 bg-transparent text-mithai-maroon px-6 py-[13px] rounded-full text-sm font-semibold border border-[rgba(107,31,31,0.28)] transition-all duration-[220ms] no-underline;
+}
+
+.btn-outline:hover {
+  @apply bg-[rgba(107,31,31,0.07)] border-[rgba(107,31,31,0.55)];
+}
+
+/* Marquee */
+.marquee-strip {
+  @apply bg-mithai-gold py-[15px] overflow-hidden relative border-t-2 border-b-2 border-[rgba(107,31,31,0.12)];
+}
+
+.marquee-strip::before {
+  content: '';
+  @apply absolute inset-0 pointer-events-none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 120px;
+}
+
+.marquee-track {
+  @apply flex gap-0 w-max;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-item {
+  @apply inline-flex items-center gap-[22px] px-8 whitespace-nowrap;
+}
+
+.marquee-item span {
+  @apply text-[11.5px] font-bold tracking-[0.15em] uppercase text-mithai-maroon;
+}
+
+.marquee-diamond {
+  @apply inline-block w-[5px] h-[5px] bg-mithai-maroon flex-shrink-0 opacity-30;
+  transform: rotate(45deg);
+}
+
+/* Cart Drawer */
+.cart-drawer-overlay {
+  @apply fixed inset-0 bg-black/0 transition-all duration-300 z-40;
+}
+
+.cart-drawer-overlay.active {
+  @apply bg-black/30 backdrop-blur-sm;
+}
+
+.cart-drawer {
+  @apply fixed right-0 top-0 h-full w-full max-w-sm bg-white shadow-xl transform translate-x-full transition-transform duration-300 z-50 flex flex-col;
+}
+
+.cart-drawer.active {
+  @apply translate-x-0;
+}
+
+/* WhatsApp FAB */
+.wa-fab {
+  @apply fixed bottom-6 right-5 w-[52px] h-[52px] rounded-full bg-green-500 flex items-center justify-center z-[800] shadow-[0_4px_20px_rgba(37,211,102,0.45)] transition-all duration-300;
+  animation: wa-pulse 3s ease-in-out infinite;
+}
+
+@keyframes wa-pulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  }
+  50% {
+    box-shadow: 0 4px 32px rgba(37, 211, 102, 0.75);
+  }
+}
+
+/* Scroll Reveal */
+.reveal {
+  @apply opacity-0 translate-y-6 transition-all duration-500;
+}
+
+.reveal.visible {
+  @apply opacity-100 translate-y-0;
+}
+
+/* Responsive Container */
+@media (min-width: 640px) {
+  .sec {
+    @apply px-7 py-20;
+  }
+}
+
+@media (min-width: 960px) {
+  .sec {
+    @apply px-10 py-20;
+  }
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(1.5deg);
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(18px, 14px) scale(1.07);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.65s ease forwards;
+}
+
+.animate-float {
+  animation: float 4.5s ease-in-out infinite;
+}
+
+.animate-blob {
+  animation: blob 9s ease-in-out infinite alternate;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
+}
+
+button,
+a {
+  @apply transition-all duration-200;
+}
