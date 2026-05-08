@@ -216,7 +216,7 @@ export default function BestsellersSection() {
           }
           .pdesc {
             font-size: 12px;
-            color: #5c3d2e;
+            color: #4A1515;
             line-height: 1.5;
             margin-bottom: 10px;
             margin: 0 0 10px 0;

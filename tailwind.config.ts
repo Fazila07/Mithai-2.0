@@ -17,8 +17,8 @@ module.exports = {
           goldP:   '#FDF8EC',
           cream:   '#F7F3EE',
           off:     '#FAFAF8',
-          brown:   '#7A2020',
-          brownL:  '#9E3030',
+          brown:   '#6B1F1F',
+          brownL:  '#8B2F2F',
           // palette from inspiration image
           rust:    '#8B3A2A',
           caramel: '#C4622D',
@@ -79,7 +79,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero-gradient': 'linear-gradient(135deg, #FBF5EC 0%, #F5E8D0 30%, #EDD9BC 65%, #E8CFA8 100%)',
-        'plate-gradient':'linear-gradient(155deg,#7A2020 0%,#9E3030 30%,#6B1F1F 65%,#4A1515 100%)',
+        'plate-gradient':'linear-gradient(155deg,#6B1F1F 0%,#8B2F2F 30%,#6B1F1F 65%,#4A1515 100%)',
         'shimmer-gradient':'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%)',
       },
     },

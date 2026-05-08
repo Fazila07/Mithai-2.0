@@ -94,7 +94,7 @@ export default function WhyUsSection() {
           text-align: center;
           gap: 10px;
           font-size: 0.9rem;
-          color: #5c3d2e;
+          color: #4A1515;
           animation: float 6s ease-in-out infinite;
         }
 

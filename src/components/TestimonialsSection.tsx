@@ -120,7 +120,7 @@ export default function TestimonialsSection() {
           }
           .ttext {
             font-size: 13px;
-            color: #5c3d2e;
+            color: #4A1515;
             line-height: 1.6;
             font-style: italic;
             margin-bottom: 12px;
@@ -133,7 +133,7 @@ export default function TestimonialsSection() {
           }
           .trole {
             font-size: 10px;
-            color: #9b7b6a;
+            color: #6B1F1F;
           }
           :root {
             --px: 18px;

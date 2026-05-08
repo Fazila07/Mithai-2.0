@@ -24,7 +24,7 @@ export default function Navbar() {
             href="/"
             className="absolute left-1/2 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 items-center transition-opacity duration-200 hover:opacity-90"
           >
-            <div className="brand-logo text-[#6B1F1A] text-center">
+            <div className="brand-logo font-medino text-[#6B1F1A] text-center">
               <span className="brand-name">Mithai</span>
               <span className="brand-suffix">2.0</span>
             </div>
@@ -104,14 +104,14 @@ export default function Navbar() {
 
       <style jsx>{`
         .icon-btn {
-          width: 42px;
-          height: 42px;
+          width: 64px;
+          height: 64px;
           border-radius: 50%;
           border: 1px solid rgba(107, 31, 31, 0.15);
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #5c3d2e;
+          color: #4A1515;
           background: none;
           position: relative;
           transition: background 0.18s, transform 0.18s;
@@ -121,6 +121,26 @@ export default function Navbar() {
         }
         .icon-btn:active {
           background: #f9f0f0;
+        }
+        .brand-logo {
+          white-space: nowrap;
+        }
+        .brand-logo .brand-name,
+        .brand-logo .brand-suffix {
+          display: inline-block;
+          vertical-align: middle;
+          line-height: 1;
+          font-weight: 400;
+        }
+        .brand-logo .brand-name {
+          font-size: 2.15rem;
+        }
+        .brand-logo .brand-suffix {
+          font-size: 2.15rem;
+          font-style: italic;
+          letter-spacing: 0.18em;
+          margin-left: 0.1em;
+          color: #E3B448;
         }
         @media (min-width: 960px) {
           .hamburger {

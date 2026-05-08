@@ -189,7 +189,7 @@ export default function DifferentOnPurposeSection() {
         }
         .feature-card p {
           margin: 0;
-          color: #5c3d2e;
+          color: #4A1515;
           line-height: 1.7;
           font-size: 0.95rem;
         }

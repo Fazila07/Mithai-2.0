@@ -5,7 +5,7 @@ import Link from 'next/link'
 const CATEGORIES = [
   { name: 'Cookies', slug: 'cookies', image: '🍪', description: 'Crunchy baked treats' },
   { name: 'Brownies', slug: 'brownies', image: '🍫', description: 'Rich chocolate bites' },
-  { name: 'Laddoos', slug: 'laddoos', image: '🎉', description: 'Traditional sweets' },
+  { name: 'Mithai', slug: 'mithai', image: '🎉', description: 'Traditional sweets' },
 ]
 
 export default function CategorySection() {
@@ -21,7 +21,7 @@ export default function CategorySection() {
           {CATEGORIES.map((cat) => (
             <Link
               key={cat.slug}
-              href={`/categories/${cat.slug}`}
+              href={`/shop?category=${cat.slug}`}
               className="cat-card group"
             >
               <div className="cat-image">
@@ -95,7 +95,7 @@ export default function CategorySection() {
           .cat-copy p {
             margin-bottom: 14px;
             font-size: 0.95rem;
-            color: #7c5b45;
+            color: #4A1515;
             line-height: 1.7;
           }
           .cat-copy span {
@@ -104,7 +104,7 @@ export default function CategorySection() {
             gap: 6px;
             font-size: 0.85rem;
             font-weight: 700;
-            color: #a36b4a;
+            color: #8B2F2F;
             text-transform: uppercase;
             letter-spacing: 0.14em;
           }

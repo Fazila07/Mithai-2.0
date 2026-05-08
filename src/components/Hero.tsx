@@ -32,7 +32,7 @@ export default function Hero() {
           {/* LEFT: Text */}
           <div className={`hero-text-col flex flex-col items-start pb-9 md:pb-14 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
             <div className={`hero-title-block mb-3.5 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '150ms' }}>
-              <div className="hero-h1 font-medino text-[clamp(52px,14vw,96px)] font-normal leading-[0.9] text-mithai-maroon tracking-[-0.02em] relative flex items-baseline gap-1 -webkit-font-smoothing-antialiased -moz-osx-font-smoothing-grayscale">
+              <div className="hero-h1 font-medino text-[clamp(42px,10vw,72px)] font-normal leading-[0.95] text-mithai-maroon tracking-[-0.02em] relative flex items-baseline gap-1 -webkit-font-smoothing-antialiased -moz-osx-font-smoothing-grayscale">
                 <span className="mithai-text">Mithai</span><span className="version-text text-mithai-gold italic font-normal">2.0</span>
                 <div className="h-[3px] w-[70%] bg-gradient-to-r from-mithai-gold to-transparent rounded mt-2.5 opacity-70 absolute bottom-0 left-0"></div>
               </div>
@@ -76,7 +76,7 @@ export default function Hero() {
 
           {/* RIGHT: Product Visual */}
           <div className={`hero-img-col w-full flex items-end justify-center relative transition-all duration-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '250ms', minHeight: '300px' }}>
-            <div className="hero-plate w-full max-w-[360px] rounded-t-[28px] bg-gradient-to-br from-[#7A2020] via-[#9E3030] to-[#4A1515] px-6 py-8 flex flex-col items-center shadow-[0_-8px_48px_rgba(107,31,31,0.3),inset_0_1px_0_rgba(255,255,255,0.08),inset_0_-1px_0_rgba(0,0,0,0.2)] relative overflow-hidden m-0 md:max-w-full md:rounded-t-[28px] md:min-h-[340px] lg:min-h-[460px] self-end">
+            <div className="hero-plate w-full max-w-[360px] rounded-t-[28px] bg-gradient-to-br from-mithai-maroon via-mithai-maroonL to-mithai-maroonD px-6 py-8 flex flex-col items-center shadow-[0_-8px_48px_rgba(107,31,31,0.3),inset_0_1px_0_rgba(255,255,255,0.08),inset_0_-1px_0_rgba(0,0,0,0.2)] relative overflow-hidden m-0 md:max-w-full md:rounded-t-[28px] md:min-h-[340px] lg:min-h-[460px] self-end">
               <div className="plate-eyebrow relative z-[2] font-serif text-[10px] tracking-[0.22em] uppercase text-white/50 mb-1.5 text-center">
                 Artisan Selection
               </div>
