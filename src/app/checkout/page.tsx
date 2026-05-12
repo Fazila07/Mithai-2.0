@@ -132,18 +132,18 @@ export default function CheckoutPage() {
               <h2 className="font-runiga text-2xl font-semibold text-mithai-maroonD mb-6">Order Summary</h2>
               <div className="space-y-4">
                 {items.map((item) => (
-                  <div key={item.id} className="flex items-center gap-4">
+                  <div key={item.product._id} className="flex items-center gap-4">
                     <img
-                      src={item.image}
-                      alt={item.name}
+                      src={item.product.images?.[0] ?? ''}
+                      alt={item.product.name}
                       className="w-16 h-16 rounded-lg object-cover"
                     />
                     <div className="flex-1">
-                      <h3 className="font-medium text-mithai-maroonD">{item.name}</h3>
+                      <h3 className="font-medium text-mithai-maroonD">{item.product.name}</h3>
                       <p className="text-sm text-mithai-taupe">Qty: {item.quantity}</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-semibold text-mithai-maroonD">₹{item.price * item.quantity}</p>
+                      <p className="font-semibold text-mithai-maroonD">₹{item.product.price * item.quantity}</p>
                     </div>
                   </div>
                 ))}

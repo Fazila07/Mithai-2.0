@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useMemo } from 'react'
+import { Suspense, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useCartStore } from '@/store/cartStore'
 
@@ -108,7 +108,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   'instant-mixes': 'Instant Mixes',
 }
 
-export default function ShopPage() {
+function ShopBody() {
   const searchParams = useSearchParams()
   const category = searchParams.get('category') || 'cookies'
   const products: Product[] = useMemo(() => PRODUCT_CATALOG[category] || [], [category])
@@ -175,5 +175,13 @@ export default function ShopPage() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-mithai-off" />}>
+      <ShopBody />
+    </Suspense>
   )
 }
