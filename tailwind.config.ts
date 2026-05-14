@@ -9,16 +9,16 @@ module.exports = {
     extend: {
       colors: {
         mithai: {
-          maroon:  '#6B1F1F',
-          maroonL: '#8B2F2F',
-          maroonD: '#4A1515',
-          maroonP: '#F9F0F0',
-          gold:    '#E3B448',
-          goldP:   '#FDF8EC',
+          maroon:  '#900c00',
+          maroonL: '#b01600',
+          maroonD: '#6d0900',
+          maroonP: '#f7eae8',
+          gold:    '#ffa520',
+          goldP:   '#fff5ed',
           cream:   '#F7F3EE',
           off:     '#FAFAF8',
-          brown:   '#6B1F1F',
-          brownL:  '#8B2F2F',
+          brown:   '#900c00',
+          brownL:  '#b01600',
           // palette from inspiration image
           rust:    '#8B3A2A',
           caramel: '#C4622D',
@@ -59,8 +59,8 @@ module.exports = {
           to:   { opacity: '1', transform: 'translateY(0)' },
         },
         pulseGlow: {
-          '0%,100%': { boxShadow: '0 0 0 3px rgba(227,180,72,0.28)' },
-          '50%':     { boxShadow: '0 0 0 5px rgba(227,180,72,0.14)' },
+          '0%,100%': { boxShadow: '0 0 0 3px rgba(255,165,32,0.28)' },
+          '50%':     { boxShadow: '0 0 0 5px rgba(255,165,32,0.14)' },
         },
         blob: {
           '0%':   { transform: 'translate(0,0) scale(1)' },
@@ -72,14 +72,14 @@ module.exports = {
         },
       },
       boxShadow: {
-        'mithai':  '0 4px 24px rgba(107,31,31,0.08)',
-        'mithaiH': '0 8px 32px rgba(107,31,31,0.15)',
-        'gold':    '0 4px 18px rgba(227,180,72,0.35)',
-        'maroon':  '0 6px 24px rgba(107,31,31,0.35)',
+        'mithai':  '0 4px 24px rgba(144,12,0,0.08)',
+        'mithaiH': '0 8px 32px rgba(144,12,0,0.15)',
+        'gold':    '0 4px 18px rgba(255,165,32,0.35)',
+        'maroon':  '0 6px 24px rgba(144,12,0,0.35)',
       },
       backgroundImage: {
         'hero-gradient': 'linear-gradient(135deg, #FBF5EC 0%, #F5E8D0 30%, #EDD9BC 65%, #E8CFA8 100%)',
-        'plate-gradient':'linear-gradient(155deg,#6B1F1F 0%,#8B2F2F 30%,#6B1F1F 65%,#4A1515 100%)',
+        'plate-gradient':'linear-gradient(155deg,#900c00 0%,#b01600 30%,#900c00 65%,#6d0900 100%)',
         'shimmer-gradient':'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%)',
       },
     },

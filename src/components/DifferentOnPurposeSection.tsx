@@ -75,11 +75,9 @@ export default function DifferentOnPurposeSection() {
     <section id="different" className="sec bg-white">
       <div className="container">
         <div className="sec-head text-center">
-          <span className="sec-label">Our Philosophy</span>
+
           <h2 className="sec-title">Made Different. On Purpose.</h2>
-          <p className="sec-sub mx-auto max-w-2xl">
-            Every ingredient is chosen with intention. No shortcuts, no compromises, no fine print.
-          </p>
+
         </div>
 
         <div className="feature-grid">
@@ -105,11 +103,10 @@ export default function DifferentOnPurposeSection() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(idx)}
-                className={`tab-btn transition-all ${
-                  activeTab === idx
-                    ? 'active border-b-2 border-mithai-maroon text-mithai-maroon'
-                    : 'text-mithai-taupe hover:text-mithai-maroon'
-                }`}
+                className={`tab-btn transition-all ${activeTab === idx
+                  ? 'active border-b-2 border-mithai-maroon text-mithai-maroon'
+                  : 'text-mithai-taupe hover:text-mithai-maroon'
+                  }`}
               >
                 {tab.label}
               </button>
@@ -120,9 +117,8 @@ export default function DifferentOnPurposeSection() {
             {TABS.map((tab, idx) => (
               <div
                 key={tab.id}
-                className={`tab-pane transition-all duration-500 ${
-                  activeTab === idx ? 'opacity-100 visible' : 'opacity-0 invisible'
-                }`}
+                className={`tab-pane transition-all duration-500 ${activeTab === idx ? 'opacity-100 visible' : 'opacity-0 invisible'
+                  }`}
               >
                 <div className="content-wrapper">
                   <div className="content-image">
@@ -176,20 +172,20 @@ export default function DifferentOnPurposeSection() {
           border-radius: 24px;
           display: grid;
           place-items: center;
-          background: rgba(107, 31, 31, 0.08);
-          color: #6b1f1f;
+          background: rgba(144, 12, 0, 0.08);
+          color: #900c00;
           font-size: 1.65rem;
-          border: 1px solid rgba(107, 31, 31, 0.08);
+          border: 1px solid rgba(144, 12, 0, 0.08);
         }
         .feature-card h3 {
           font-size: 1.05rem;
           font-weight: 700;
-          color: #4a1515;
+          color: #900c00;
           margin: 0;
         }
         .feature-card p {
           margin: 0;
-          color: #4A1515;
+          color: #900c00;
           line-height: 1.7;
           font-size: 0.95rem;
         }
@@ -197,7 +193,7 @@ export default function DifferentOnPurposeSection() {
           display: flex;
           gap: 24px;
           margin-bottom: 40px;
-          border-bottom: 1px solid rgba(107, 31, 31, 0.1);
+          border-bottom: 1px solid rgba(176, 21, 7, 0.1);
           flex-wrap: wrap;
         }
         .tab-btn {
@@ -212,9 +208,9 @@ export default function DifferentOnPurposeSection() {
           position: relative;
         }
         .tab-btn.active {
-          color: #6b1f1f;
+          color: #900c00;
           border-bottom-width: 2px;
-          border-bottom-color: #6b1f1f;
+          border-bottom-color: #900c00;
         }
         .tabs-content {
           position: relative;
@@ -249,7 +245,7 @@ export default function DifferentOnPurposeSection() {
           bottom: 0;
           left: 0;
           right: 0;
-          background: rgba(107, 31, 31, 0.9);
+          background: rgba(155, 3, 3, 0.9);
           color: white;
           padding: 30px;
           border-radius: 0 0 24px 24px;

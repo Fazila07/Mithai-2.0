@@ -1,75 +1,131 @@
 'use client'
 
+import Image from 'next/image'
+
 const HIGHLIGHTS = [
-  { label: 'Almonds', emoji: '🌰' },
-  { label: 'Jaggery', emoji: '🍯' },
-  { label: 'Millets', emoji: '🌾' },
-  { label: 'Pumpkin Seeds', emoji: '🎃' },
-  { label: 'Oats', emoji: '🌾' },
-  { label: 'Flax Seeds', emoji: '💪' },
-  { label: 'Ragi', emoji: '🌿' },
+  { label: 'Almond Flour', image: '/images/almond flour.jpg' },
+  { label: 'Ragi',         image: '/images/ragiii.jpg' },
+  { label: 'Walnuts',      image: '/images/walnuts.jpg' },
+  { label: 'Coconut Sugar',image: '/images/coconut.jpg' },
+  { label: 'Flax Seeds',   image: '/images/flaxseeds.jpg' },
+  { label: 'Vegan Chocolate', image: '/images/cocoa.jpeg' },
+  { label: 'Jowar',        image: '/images/jowar.jpg' },
+  { label: 'Desi Khandsari', image: '/images/sugarcane.jpg' },
 ]
+
+const N          = HIGHLIGHTS.length   // 8
+const ORBIT_R    = 275                 // px – orbit radius (center → centre of each badge card)
+const POINT_SIZE = 110                 // px – badge card width & min-height (desktop)
+const RING_DIAM  = ORBIT_R * 2        // 550 px – dotted ring diameter
+const WRAP_SIZE  = RING_DIAM + POINT_SIZE + 44  // 704 px – outer wrapper square
 
 export default function WhyUsSection() {
   return (
     <section id="why-us" className="sec bg-white">
       <div className="container">
         <div className="sec-head text-center">
-         
           <h2 className="sec-title">Why Us?</h2>
-          
         </div>
 
-        <div className="ring-wrap">
-          <div className="ring" />
-          <div className="center-card">
-            <strong>Ingredients</strong>
-            
-          </div>
+        {/* outer scaler keeps the fixed-px layout centred & clipped on narrow viewports */}
+        <div className="ring-scaler">
+          <div className="ring-wrap">
 
-          {HIGHLIGHTS.map((item, index) => (
-            <div key={item.label} className={`point point-${index + 1}`}>
-              <div className="point-badge">{item.emoji}</div>
-              <div className="point-label">{item.label}</div>
+            {/* dotted ring – sized to the orbit circle, centred on the wrapper */}
+            <div className="ring" />
+
+            {/* centre card – unchanged */}
+            <div className="center-card">
+              <strong>Ingredients</strong>
             </div>
-          ))}
-        </div>
+
+            {/* ingredient badges – each anchor is placed by JS-computed trig; the inner
+                card floats independently so the transform stack stays clean */}
+            {HIGHLIGHTS.map((item, i) => {
+              const angle = (i / N) * 2 * Math.PI - Math.PI / 2  // start from top
+              const x = Math.cos(angle) * ORBIT_R
+              const y = Math.sin(angle) * ORBIT_R
+              const delay = `${(i * 0.75).toFixed(2)}s`
+
+              return (
+                <div
+                  key={item.label}
+                  className="point-anchor"
+                  style={{
+                    top:  `calc(50% + ${y.toFixed(2)}px)`,
+                    left: `calc(50% + ${x.toFixed(2)}px)`,
+                  }}
+                >
+                  <div className="point" style={{ animationDelay: delay }}>
+                    <div className="point-badge">
+                      <Image
+                        src={item.image}
+                        alt={item.label}
+                        width={42}
+                        height={42}
+                        style={{ borderRadius: '50%', objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="point-label">{item.label}</div>
+                  </div>
+                </div>
+              )
+            })}
+
+          </div>{/* ring-wrap */}
+        </div>{/* ring-scaler */}
       </div>
 
       <style jsx>{`
-        .ring-wrap {
-          position: relative;
-          width: min(760px, 100%);
-          aspect-ratio: 1 / 1;
-          margin: 0 auto;
-          display: grid;
-          place-items: center;
-          padding: 28px 18px;
+        /* ── outer scaler ─────────────────────────────────────────────── */
+        .ring-scaler {
+          display: flex;
+          justify-content: center;
+          overflow: hidden;        /* clip on small screens so no h-scroll */
         }
 
+        /* ── fixed-size square stage ──────────────────────────────────── */
+        .ring-wrap {
+          position: relative;
+          width:  ${WRAP_SIZE}px;
+          height: ${WRAP_SIZE}px;
+          flex-shrink: 0;
+          display: grid;
+          place-items: center;
+        }
+
+        /* ── dotted ring – sized to RING_DIAM, centred on the stage ───── */
         .ring {
           position: absolute;
-          inset: 0;
+          width:  ${RING_DIAM}px;
+          height: ${RING_DIAM}px;
+          top:  50%;
+          left: 50%;
           border-radius: 50%;
-          border: 1px dashed rgba(107, 31, 31, 0.18);
+          border: 1.5px dashed rgba(107, 31, 31, 0.22);
           box-shadow: inset 0 0 0 1px rgba(227, 180, 72, 0.1);
           animation: spin 20s linear infinite;
         }
 
+        /* ── centre product card – UNCHANGED ──────────────────────────── */
         .center-card {
           position: relative;
           z-index: 2;
           width: 240px;
           min-height: 240px;
           border-radius: 50%;
-          background: radial-gradient(circle at top left, rgba(227, 180, 72, 0.24), rgba(255, 255, 255, 0.96));
-          border: 1px solid rgba(107, 31, 31, 0.12);
-          box-shadow: 0 24px 50px rgba(107, 31, 31, 0.12);
+          background: radial-gradient(
+            circle at top left,
+            rgba(255, 165, 32, 0.24),
+            rgba(255, 255, 255, 0.96)
+          );
+          border: 1px solid rgba(144, 12, 0, 0.12);
+          box-shadow: 0 24px 50px rgba(144, 12, 0, 0.12);
           display: grid;
           place-items: center;
           padding: 26px;
           text-align: center;
-          color: #4a1515;
+          color: #900c00;
         }
 
         .center-card strong {
@@ -80,21 +136,31 @@ export default function WhyUsSection() {
           font-weight: 700;
         }
 
-        .point {
+        /* ── position anchor (no animation transform here) ────────────── */
+        .point-anchor {
           position: absolute;
-          width: 110px;
-          min-height: 110px;
-          padding: 16px;
-          border-radius: 28px;
-          background: rgba(255, 255, 255, 0.94);
-          border: 1px solid rgba(107, 31, 31, 0.12);
-          box-shadow: 0 18px 40px rgba(107, 31, 31, 0.08);
-          display: grid;
-          place-items: center;
+          transform: translate(-50%, -50%);
+          z-index: 3;
+        }
+
+        /* ── badge card (float animation lives here) ──────────────────── */
+        .point {
+          width: ${POINT_SIZE}px;
+          padding: 14px 10px;
+          border-radius: 22px;
+          background: rgba(255, 255, 255, 0.95);
+          border: 1px solid rgba(144, 12, 0, 0.12);
+          box-shadow: 0 14px 36px rgba(144, 12, 0, 0.09);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          font-size: 0.78rem;
+          font-weight: 700;
+          color: #900c00;
           text-align: center;
-          gap: 10px;
-          font-size: 0.9rem;
-          color: #4A1515;
+          letter-spacing: 0.01em;
           animation: float 6s ease-in-out infinite;
         }
 
@@ -104,51 +170,58 @@ export default function WhyUsSection() {
           border-radius: 50%;
           display: grid;
           place-items: center;
-          font-size: 1.35rem;
-          background: linear-gradient(135deg, rgba(227,180,72,0.15), rgba(107,31,31,0.08));
-          color: #6b1f1f;
+          background: linear-gradient(
+            135deg,
+            rgba(227, 180, 72, 0.18),
+            rgba(107, 31, 31, 0.08)
+          );
+          overflow: hidden;
+          flex-shrink: 0;
         }
 
         .point-label {
-          font-weight: 700;
-          letter-spacing: 0.01em;
+          line-height: 1.25;
+          word-break: break-word;
         }
 
-        .point-1 { top: 6%; left: 50%; transform: translateX(-50%); }
-        .point-2 { top: 24%; right: 6%; }
-        .point-3 { top: 55%; right: 6%; }
-        .point-4 { bottom: 8%; left: 58%; }
-        .point-5 { bottom: 8%; left: 18%; }
-        .point-6 { top: 55%; left: 6%; }
-        .point-7 { top: 24%; left: 10%; }
-
+        /* ── animations ───────────────────────────────────────────────── */
         @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+          0%   { transform: translate(-50%, -50%) rotate(0deg); }
+          100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
+          0%,  100% { transform: translateY(0px); }
+          50%        { transform: translateY(-9px); }
         }
 
-        @media (max-width: 720px) {
+        /* ── responsive – scale the whole composition down ────────────── */
+        @media (max-width: 780px) {
+          .ring-scaler {
+            /* scale factor so the ${WRAP_SIZE}px stage fits in the viewport */
+            transform-origin: top center;
+          }
           .ring-wrap {
-            padding: 18px;
+            transform: scale(0.72);
+            transform-origin: top center;
+            margin-bottom: -${Math.round(WRAP_SIZE * 0.28)}px;
           }
-          .point {
-            width: 96px;
-            min-height: 96px;
-            padding: 14px;
+        }
+
+        @media (max-width: 520px) {
+          .ring-wrap {
+            transform: scale(0.52);
+            transform-origin: top center;
+            margin-bottom: -${Math.round(WRAP_SIZE * 0.48)}px;
           }
-          .point-2, .point-3, .point-6, .point-7 {
-            left: auto;
-            right: auto;
+        }
+
+        @media (max-width: 380px) {
+          .ring-wrap {
+            transform: scale(0.42);
+            transform-origin: top center;
+            margin-bottom: -${Math.round(WRAP_SIZE * 0.58)}px;
           }
-          .point-2 { right: 6%; top: 20%; }
-          .point-3 { right: 0; top: 53%; }
-          .point-6 { left: 0; top: 53%; }
-          .point-7 { left: 10%; top: 20%; }
         }
       `}</style>
     </section>

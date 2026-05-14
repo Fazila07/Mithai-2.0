@@ -60,7 +60,7 @@ button {
 }
 
 .sec-title {
-  @apply font-medino text-[clamp(24px,6vw,42px)] font-normal text-mithai-maroonD leading-[0.95] mb-2.5 tracking-[-0.01em];
+  @apply font-medino text-[clamp(24px,6vw,42px)] font-normal text-[#900c00] leading-[0.95] mb-2.5 tracking-[-0.01em];
 }
 
 .sec-sub {
@@ -97,7 +97,7 @@ button {
 }
 
 .btn-primary {
-  @apply inline-flex items-center gap-2 bg-mithai-maroon text-white px-7 py-[13px] rounded-full text-sm font-semibold tracking-[0.03em] shadow-[0_4px_18px_rgba(107,31,31,0.32)] transition-all duration-[220ms] no-underline;
+  @apply inline-flex items-center gap-2 bg-mithai-maroon text-white px-7 py-[13px] rounded-full text-sm font-semibold tracking-[0.03em] shadow-[0_4px_18px_rgba(144,12,0,0.32)] transition-all duration-[220ms] no-underline;
 }
 
 .btn-primary:hover {
@@ -105,16 +105,16 @@ button {
 }
 
 .btn-outline {
-  @apply inline-flex items-center gap-2 bg-transparent text-mithai-maroon px-6 py-[13px] rounded-full text-sm font-semibold border border-[rgba(107,31,31,0.28)] transition-all duration-[220ms] no-underline;
+  @apply inline-flex items-center gap-2 bg-transparent text-mithai-maroon px-6 py-[13px] rounded-full text-sm font-semibold border border-[rgba(144,12,0,0.28)] transition-all duration-[220ms] no-underline;
 }
 
 .btn-outline:hover {
-  @apply bg-[rgba(107,31,31,0.07)] border-[rgba(107,31,31,0.55)];
+  @apply bg-[rgba(144,12,0,0.07)] border-[rgba(144,12,0,0.55)];
 }
 
 /* Marquee */
 .marquee-strip {
-  @apply bg-mithai-gold py-[15px] overflow-hidden relative border-t-2 border-b-2 border-[rgba(107,31,31,0.12)];
+  @apply bg-mithai-gold py-[15px] overflow-hidden relative border-t-2 border-b-2 border-[rgba(144,12,0,0.12)];
 }
 
 .marquee-strip::before {

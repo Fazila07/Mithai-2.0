@@ -385,7 +385,7 @@ export default function TrackOrderPage() {
       <style>{`
         /* Hero */
         .track-hero {
-          background: linear-gradient(135deg, #6B1F1F 0%, #8B2F2F 40%, #4A1515 100%);
+          background: linear-gradient(135deg, #900c00 0%, #b01600 40%, #6d0900 100%);
           padding: 72px 16px 80px;
           text-align: center;
           position: relative;
@@ -393,11 +393,11 @@ export default function TrackOrderPage() {
         .track-hero-inner { position: relative; z-index: 2; }
         .track-hero-icon {
           width: 56px; height: 56px;
-          background: rgba(227,180,72,0.18);
-          border: 1px solid rgba(227,180,72,0.4);
+          background: rgba(255,165,32,0.18);
+          border: 1px solid rgba(255,165,32,0.4);
           border-radius: 50%;
           display: flex; align-items: center; justify-content: center;
-          color: #E3B448;
+          color: #ffa520;
           margin: 0 auto 20px;
         }
         .track-hero h1 { color: #FDF8EC; }
@@ -412,10 +412,10 @@ export default function TrackOrderPage() {
         /* Card */
         .track-card {
           background: #fff;
-          border: 1px solid rgba(107,31,31,0.10);
+          border: 1px solid rgba(144,12,0,0.10);
           border-radius: 28px;
           padding: 28px;
-          box-shadow: 0 14px 32px rgba(107,31,31,0.06);
+          box-shadow: 0 14px 32px rgba(144,12,0,0.06);
         }
 
         /* Label & Input */
@@ -429,7 +429,7 @@ export default function TrackOrderPage() {
         }
         .track-input {
           width: 100%;
-          border: 1.5px solid rgba(107,31,31,0.15);
+          border: 1.5px solid rgba(144,12,0,0.15);
           border-radius: 999px;
           background: #FAFAF8;
           padding: 13px 20px;
@@ -440,15 +440,15 @@ export default function TrackOrderPage() {
         }
         .track-input::placeholder { color: #9B7B6A; }
         .track-input:focus {
-          border-color: #6B1F1F;
-          box-shadow: 0 0 0 3px rgba(107,31,31,0.10);
+          border-color: #900c00;
+          box-shadow: 0 0 0 3px rgba(144,12,0,0.10);
         }
 
         /* Primary button */
         .track-btn {
           display: block;
           width: 100%;
-          background: #6B1F1F;
+          background: #900c00;
           color: #FDF8EC;
           border: none;
           border-radius: 999px;
@@ -458,13 +458,13 @@ export default function TrackOrderPage() {
           letter-spacing: 0.03em;
           cursor: pointer;
           transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-          box-shadow: 0 6px 22px rgba(107,31,31,0.28);
+          box-shadow: 0 6px 22px rgba(144,12,0,0.28);
           text-decoration: none;
         }
         .track-btn:hover:not(:disabled) {
-          background: #8B2F2F;
+          background: #b01600;
           transform: translateY(-1px);
-          box-shadow: 0 10px 28px rgba(107,31,31,0.32);
+          box-shadow: 0 10px 28px rgba(144,12,0,0.32);
         }
         .track-btn:disabled { opacity: 0.65; cursor: not-allowed; }
 
@@ -472,18 +472,18 @@ export default function TrackOrderPage() {
         .track-btn-outline {
           flex: 1;
           background: transparent;
-          border: 1.5px solid rgba(107,31,31,0.25);
+          border: 1.5px solid rgba(144,12,0,0.25);
           border-radius: 999px;
           padding: 14px 24px;
           font-size: 0.85rem;
           font-weight: 600;
-          color: #6B1F1F;
+          color: #900c00;
           cursor: pointer;
           transition: background 0.18s, border-color 0.18s;
         }
         .track-btn-outline:hover {
-          background: #F9F0F0;
-          border-color: #6B1F1F;
+          background: #f7eae8;
+          border-color: #900c00;
         }
 
         /* Spinner */
@@ -535,7 +535,7 @@ export default function TrackOrderPage() {
         }
         .track-progress-fill {
           height: 100%;
-          background: linear-gradient(90deg, #6B1F1F 0%, #E3B448 100%);
+          background: linear-gradient(90deg, #900c00 0%, #ffa520 100%);
           border-radius: 999px;
           transition: width 1s cubic-bezier(.4,0,.2,1);
         }
@@ -559,7 +559,7 @@ export default function TrackOrderPage() {
           width: 2px;
           bottom: 0;
         }
-        .track-connector-done    { background: #6B1F1F; }
+        .track-connector-done    { background: #900c00; }
         .track-connector-pending { background: #E8C99A; }
 
         /* Step dots */
@@ -567,19 +567,19 @@ export default function TrackOrderPage() {
           flex-shrink: 0;
           width: 32px; height: 32px;
           border-radius: 50%;
-          background: #6B1F1F;
+          background: #900c00;
           color: #FDF8EC;
           display: flex; align-items: center; justify-content: center;
-          box-shadow: 0 4px 10px rgba(107,31,31,0.30);
+          box-shadow: 0 4px 10px rgba(144,12,0,0.30);
           z-index: 1;
         }
         .step-dot-active {
           flex-shrink: 0;
           width: 32px; height: 32px;
           border-radius: 50%;
-          background: #E3B448;
+          background: #ffa520;
           display: flex; align-items: center; justify-content: center;
-          box-shadow: 0 0 0 4px rgba(227,180,72,0.25);
+          box-shadow: 0 0 0 4px rgba(255,165,32,0.25);
           z-index: 1;
           position: relative;
         }

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import BottomNav from '@/components/BottomNav'
+import ConditionalBottomNav from '@/components/ConditionalBottomNav'
 
 export const metadata: Metadata = {
   title: 'Mithai 2.0 — Modern Mithai. Honest Ingredients.',
@@ -50,7 +50,7 @@ export default function RootLayout({
       </head>
       <body className="bg-mithai-off text-mithai-charcoal">
         {children}
-        <BottomNav />
+        <ConditionalBottomNav />
       </body>
     </html>
   )

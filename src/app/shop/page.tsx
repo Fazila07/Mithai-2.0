@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { Suspense, useMemo } from 'react'
+import { Suspense, useMemo, useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useCartStore } from '@/store/cartStore'
+import { useWishlistStore } from '@/store/wishlistStore'
 
 interface Product {
   _id: string
@@ -113,6 +114,9 @@ function ShopBody() {
   const category = searchParams.get('category') || 'cookies'
   const products: Product[] = useMemo(() => PRODUCT_CATALOG[category] || [], [category])
   const addItem = useCartStore((state) => state.addItem)
+  const { toggle, isWishlisted } = useWishlistStore()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   return (
     <main className="min-h-screen bg-mithai-off px-4 py-10 sm:px-7 lg:px-10">
@@ -135,9 +139,40 @@ function ShopBody() {
           ) : (
             products.map((product) => (
               <div key={product._id} className="rounded-[28px] bg-white border border-[rgba(107,31,31,0.1)] shadow-[0_14px_32px_rgba(107,31,31,0.06)] overflow-hidden transition-transform duration-300 hover:-translate-y-1">
-                <Link href={`/shop/${product.slug}`} className="group block relative h-56 overflow-hidden bg-[#f7f3ee]">
-                  <img src={product.images[0]} alt={product.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                </Link>
+                <div className="relative group block h-56 overflow-hidden bg-[#f7f3ee]">
+                  <Link href={`/shop/${product.slug}`} className="block h-full w-full">
+                    <img src={product.images[0]} alt={product.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </Link>
+                  {/* Heart button */}
+                  <button
+                    onClick={() => toggle({
+                      _id: product._id, name: product.name, slug: product.slug,
+                      description: product.name, shortDescription: product.name,
+                      price: product.price, images: product.images, category,
+                      ingredients: [], stock: 20, tags: [], featured: false,
+                      bestSeller: false, rating: 4.8, reviewCount: 12,
+                      createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+                    })}
+                    aria-label={mounted && isWishlisted(product._id) ? 'Remove from wishlist' : 'Add to wishlist'}
+                    style={{
+                      position: 'absolute', top: 10, right: 10, zIndex: 2,
+                      width: 36, height: 36, borderRadius: '50%',
+                      background: 'rgba(255,255,255,0.92)',
+                      border: '1.5px solid rgba(144,12,0,0.15)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      cursor: 'pointer',
+                      color: mounted && isWishlisted(product._id) ? '#900c00' : '#c0392b',
+                      transition: 'transform 0.18s, background 0.18s',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                    }}
+                  >
+                    <svg viewBox="0 0 24 24" width="18" height="18"
+                      fill={mounted && isWishlisted(product._id) ? 'currentColor' : 'none'}
+                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                  </button>
+                </div>
                 <div className="p-6">
                   <h2 className="font-runiga text-xl font-semibold text-mithai-maroonD mb-3">{product.name}</h2>
                   <div className="flex items-center justify-between gap-3 mb-5">

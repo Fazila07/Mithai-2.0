@@ -46,7 +46,7 @@ export default function GiftsSection() {
 
         <style jsx>{`
           .banner {
-            background: linear-gradient(135deg, #6b1f1f 0%, #8b2f2f 50%, #4a1515 100%);
+            background: linear-gradient(135deg, #900c00 0%, #b01600 50%, #900c00 100%);
             padding: 52px 40px;
             text-align: center;
             position: relative;
@@ -59,7 +59,7 @@ export default function GiftsSection() {
             inset: 0;
             background-image: radial-gradient(
               circle,
-              rgba(227, 180, 72, 0.13) 1px,
+              rgba(255, 165, 32, 0.13) 1px,
               transparent 1px
             );
             background-size: 24px 24px;
@@ -79,7 +79,7 @@ export default function GiftsSection() {
           }
           .banner-title em {
             font-style: italic;
-            color: #e3b448;
+            color: #ffa520;
           }
           .banner-subtitle {
             color: rgba(255, 255, 255, 0.7);
@@ -116,8 +116,8 @@ export default function GiftsSection() {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #e3b448;
-            color: #6b1f1f;
+            background: #ffa520;
+            color: #900c00;
             padding: 13px 28px;
             border-radius: 100px;
             font-size: 14px;

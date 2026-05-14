@@ -79,8 +79,8 @@ export default function CategorySection() {
             border-radius: 24px;
             display: grid;
             place-items: center;
-            background: rgba(107, 31, 31, 0.08);
-            color: #6b1f1f;
+            background: rgba(144, 12, 0, 0.08);
+            color: #900c00;
             font-size: 2.5rem;
           }
           .cat-copy {
@@ -90,12 +90,12 @@ export default function CategorySection() {
             font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 8px;
-            color: #4a1515;
+            color: #6d0900;
           }
           .cat-copy p {
             margin-bottom: 14px;
             font-size: 0.95rem;
-            color: #4A1515;
+            color: #6d0900;
             line-height: 1.7;
           }
           .cat-copy span {
@@ -104,7 +104,7 @@ export default function CategorySection() {
             gap: 6px;
             font-size: 0.85rem;
             font-weight: 700;
-            color: #8B2F2F;
+            color: #b01600;
             text-transform: uppercase;
             letter-spacing: 0.14em;
           }

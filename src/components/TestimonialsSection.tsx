@@ -76,7 +76,7 @@ export default function TestimonialsSection() {
             font-weight: 700;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: #e3b448;
+            color: #ffa520;
             margin-bottom: 8px;
             display: block;
           }
@@ -84,7 +84,7 @@ export default function TestimonialsSection() {
             font-family: 'Playfair Display', serif;
             font-size: clamp(24px, 6vw, 42px);
             font-weight: 700;
-            color: #4a1515;
+            color: #6d0900;
             line-height: 1.18;
             margin-bottom: 10px;
           }
@@ -110,17 +110,17 @@ export default function TestimonialsSection() {
             background: #f7f3ee;
             border-radius: 18px;
             padding: 20px;
-            border: 1px solid rgba(107, 31, 31, 0.1);
+            border: 1px solid rgba(144, 12, 0, 0.1);
           }
           .tstar {
-            color: #e3b448;
+            color: #ffa520;
             font-size: 13px;
             margin-bottom: 8px;
             letter-spacing: 2px;
           }
           .ttext {
             font-size: 13px;
-            color: #4A1515;
+            color: #6d0900;
             line-height: 1.6;
             font-style: italic;
             margin-bottom: 12px;
@@ -128,12 +128,12 @@ export default function TestimonialsSection() {
           .tauth {
             font-size: 11px;
             font-weight: 700;
-            color: #6b1f1f;
+            color: #900c00;
             margin-bottom: 2px;
           }
           .trole {
             font-size: 10px;
-            color: #6B1F1F;
+            color: #900c00;
           }
           :root {
             --px: 18px;

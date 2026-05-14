@@ -23,22 +23,18 @@ const navItems = [
     ),
   },
   {
-    label: 'Track Order',
-    href: '/track-order',
+    label: 'Coupons',
+    href: '/coupons',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-        <rect x="1" y="3" width="15" height="13" rx="1"/>
-        <path d="M16 8h4l3 4v4h-7V8z"/>
-        <circle cx="5.5" cy="18.5" r="2.5"/>
-        <circle cx="18.5" cy="18.5" r="2.5"/>
+        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+        <line x1="7" y1="7" x2="7.01" y2="7"/>
       </svg>
     ),
     iconFilled: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <rect x="1" y="3" width="15" height="13" rx="1"/>
-        <path d="M16 8h4l3 4v4h-7V8z"/>
-        <circle cx="5.5" cy="18.5" r="2.5" fill="white"/>
-        <circle cx="18.5" cy="18.5" r="2.5" fill="white"/>
+        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+        <circle cx="7" cy="7" r="1" fill="white"/>
       </svg>
     ),
   },
@@ -157,7 +153,7 @@ export default function BottomNav() {
           -webkit-tap-highlight-color: transparent;
         }
         .bottom-nav-item--active {
-          color: #6B1F1F;
+          color: #900c00;
         }
         .bottom-nav-icon {
           position: relative;
@@ -176,8 +172,8 @@ export default function BottomNav() {
           position: absolute;
           top: -6px;
           right: -8px;
-          background: #E3B448;
-          color: #4A1515;
+          background: #ffa520;
+          color: #6d0900;
           font-size: 9px;
           font-weight: 700;
           min-width: 16px;

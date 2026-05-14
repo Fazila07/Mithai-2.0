@@ -32,7 +32,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-6 text-sm font-semibold text-mithai-warmGray">
               <Link href="/" className="hover:text-mithai-maroon transition-colors">Home</Link>
               <Link href="/shop" className="hover:text-mithai-maroon transition-colors">Shop</Link>
-              <Link href="/track-order" className="hover:text-mithai-maroon transition-colors">Track Order</Link>
+              <Link href="/coupons" className="hover:text-mithai-maroon transition-colors">Coupons</Link>
             </div>
           </div>
 
@@ -94,7 +94,7 @@ export default function Navbar() {
           { href: '/#bestsellers', label: 'Best Sellers' },
           { href: '/#categories', label: 'Categories' },
           { href: '/#why-us', label: 'Why Us?' },
-          { href: '/track-order', label: '🚚 Track Order' },
+          { href: '/coupons', label: '🎟️ Coupons' },
           { href: '/login', label: 'My Account' },
         ].map(({ href, label }) => (
           <Link
@@ -114,12 +114,12 @@ export default function Navbar() {
           width: 40px;
           height: 40px;
           border-radius: 50%;
-          border: 1.5px solid rgba(107,31,31,0.18);
+          border: 1.5px solid rgba(144,12,0,0.18);
           background: transparent;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #4A1515;
+          color: #6d0900;
           cursor: pointer;
           position: relative;
           transition: background 0.16s, border-color 0.16s, transform 0.15s;
@@ -127,13 +127,13 @@ export default function Navbar() {
           flex-shrink: 0;
         }
         .nav-icon-btn:hover {
-          background: #F9F0F0;
-          border-color: rgba(107,31,31,0.35);
+          background: #f7eae8;
+          border-color: rgba(144,12,0,0.35);
           transform: translateY(-1px);
         }
         .nav-icon-btn:active {
           transform: translateY(0);
-          background: #F0E0E0;
+          background: #f0e0e0;
         }
 
         /* Cart badge */
@@ -141,7 +141,7 @@ export default function Navbar() {
           position: absolute;
           top: -4px;
           right: -4px;
-          background: #6B1F1F;
+          background: #900c00;
           color: #FDF8EC;
           font-size: 9px;
           font-weight: 700;
@@ -165,13 +165,13 @@ export default function Navbar() {
           line-height: 1;
           font-weight: 400;
         }
-        .brand-logo .brand-name  { font-size: 2.15rem; }
+        .brand-logo .brand-name  { font-size: 2.15rem; color: #900c00; }
         .brand-logo .brand-suffix {
           font-size: 2.15rem;
           font-style: italic;
           letter-spacing: 0.18em;
           margin-left: 0.1em;
-          color: #E3B448;
+          color: #ffa520;
         }
 
         @media (min-width: 960px) {
