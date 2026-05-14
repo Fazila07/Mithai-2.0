@@ -38,7 +38,7 @@ export default function Hero() {
               </div>
             </div>
 
-          
+
 
             <div className={`hero-btns flex gap-3 flex-wrap transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '420ms' }}>
               <a
@@ -52,7 +52,7 @@ export default function Hero() {
               </a>
               <a
                 href="#why-us"
-                className="hbtn-ghost inline-flex items-center gap-2.25 bg-transparent text-mithai-maroon px-6 py-[13px] rounded-full text-[13px] font-semibold tracking-[0.05em] border border-[rgba(107,31,31,0.3)] transition-all duration-[260ms] no-underline hover:bg-[rgba(107,31,31,0.07)] hover:border-[rgba(107,31,31,0.55)]"
+                className="hbtn-ghost inline-6yyujhnflex items-center gap-2.25 bg-transparent text-mithai-maroon px-6 py-[13px] rounded-full text-[13px] font-semibold tracking-[0.05em] border border-[rgba(107,31,31,0.3)] transition-all duration-[260ms] no-underline hover:bg-[rgba(107,31,31,0.07)] hover:border-[rgba(107,31,31,0.55)]"
               >
                 Learn More
               </a>
