@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import AdminSidebar from '@/components/admin/AdminSidebar'
 import AdminHeader from '@/components/admin/AdminHeader'
-import { SessionProvider } from 'next-auth/react'
+import Providers from '@/components/Providers'
 import { Toaster } from 'react-hot-toast'
 
 const PAGE_TITLES: Record<string, string> = {
@@ -54,8 +54,8 @@ function AdminShell({ children }: { children: React.ReactNode }) {
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <SessionProvider>
+    <Providers>
       <AdminShell>{children}</AdminShell>
-    </SessionProvider>
+    </Providers>
   )
 }
