@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 import Providers from '@/components/Providers'
+=======
+export const dynamic = 'force-dynamic'
+>>>>>>> 6bdafe9 (Update Mithai-2.0 project)
 
-// Admin login has its own layout — no sidebar, no header
 export default function AdminLoginLayout({ children }: { children: React.ReactNode }) {
+<<<<<<< HEAD
   return (
     <Providers>
       {children}
     </Providers>
   )
+=======
+  return <>{children}</>
+>>>>>>> 6bdafe9 (Update Mithai-2.0 project)
 }

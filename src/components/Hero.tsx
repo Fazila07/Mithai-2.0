@@ -1,28 +1,33 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
-  const heroRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
 
   return (
-    <div className="hero-wrapper pt-[60px] bg-[#EDE3D5] pb-0">
-      <section className="hero m-3 md:m-[12px] rounded-t-[32px] min-h-[calc(100svh-var(--nav)-12px)] bg-gradient-to-br from-[#FBF5EC] via-[#F5E8D0] to-[#E8CFA8] relative overflow-hidden flex items-stretch" ref={heroRef}>
-        {/* SVG Background */}
-        <svg className="hero-svg-bg absolute inset-0 pointer-events-none w-full h-full" viewBox="0 0 800 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M0,350 C80,290 200,420 320,340 C440,260 520,400 640,330 C720,280 770,310 800,300 L800,700 L0,700 Z" fill="rgba(107,31,31,0.045)" />
-          <path d="M0,480 C100,410 240,530 380,460 C520,390 620,510 740,450 C780,428 800,440 800,440 L800,700 L0,700 Z" fill="rgba(227,180,72,0.07)" />
-          <path d="M0,580 C140,540 280,610 420,570 C560,530 680,600 800,560 L800,700 L0,700 Z" fill="rgba(107,31,31,0.03)" />
-          <circle cx="70" cy="70" r="110" fill="none" stroke="rgba(227,180,72,0.13)" strokeWidth="1.5" />
-          <circle cx="70" cy="70" r="70" fill="none" stroke="rgba(227,180,72,0.08)" strokeWidth="1" />
-          <circle cx="730" cy="640" r="130" fill="none" stroke="rgba(106, 26, 26, 0.07)" strokeWidth="1.5" />
-        </svg>
+    <div className="hero-wrapper pt-[60px] bg-[#EDE3D5]">
+      <section className="hero-banner relative w-full overflow-hidden">
+        {/* Banner Image */}
+        <div className="relative w-full">
+          <Image
+            src="/images/banner.jpg"
+            alt="Mithai 2.0 - Guiltfree Goodies"
+            width={1920}
+            height={1280}
+            priority
+            unoptimized
+            quality={100}
+            className="w-full h-auto object-cover block"
+            style={{ maxHeight: '80vh' }}
+          />
 
+<<<<<<< HEAD
         {/* Color blobs */}
         <div className="h-blob hb-y absolute w-[500px] h-[500px] rounded-full pointer-events-none z-0 bg-gradient-to-r from-[rgba(227,180,72,0.28)] to-transparent top-[-150px] right-[-100px] animate-blob" />
         <div className="h-blob hb-m absolute w-[380px] h-[380px] rounded-full pointer-events-none z-0 bg-gradient-to-r from-[rgba(107,31,31,0.14)] to-transparent bottom-[-100px] left-[-80px]" />
@@ -104,55 +109,150 @@ export default function Hero() {
                 <span className="text-[8.5px] font-bold tracking-[0.18em] text-white/55 uppercase whitespace-nowrap">Made Fresh</span>
               </div>
             </div>
+=======
+          {/* Buttons Overlay - positioned at bottom-right of the banner */}
+          <div
+            className={`hero-banner-buttons absolute transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{ transitionDelay: '400ms' }}
+          >
+            <a
+              href="/shop"
+              className="hero-banner-btn"
+            >
+              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="btn-icon">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 01-8 0" />
+              </svg>
+              Shop
+            </a>
+            <a
+              href="#why-us"
+              className="hero-banner-btn"
+            >
+              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="btn-icon">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="16" x2="12" y2="12" />
+                <line x1="12" y1="8" x2="12.01" y2="8" />
+              </svg>
+              About
+            </a>
+>>>>>>> 6bdafe9 (Update Mithai-2.0 project)
           </div>
         </div>
-
-        <style jsx>{`
-          @keyframes blob {
-            0% {
-              transform: translate(0, 0) scale(1);
-            }
-            100% {
-              transform: translate(18px, 14px) scale(1.07);
-            }
-          }
-          @keyframes float {
-            0%,
-            100% {
-              transform: translateY(0) rotate(-1.5deg);
-            }
-            50% {
-              transform: translateY(-16px) rotate(1.5deg);
-            }
-          }
-          .animate-float {
-            animation: float 4.5s ease-in-out infinite;
-          }
-          .hb-y {
-            animation: blob 9s ease-in-out infinite alternate;
-          }
-          .hb-m {
-            animation: blob 11s ease-in-out infinite alternate-reverse;
-          }
-          .mithai-text {
-            font-size: 1em;
-            font-weight: 400;
-          }
-          .version-text {
-            font-size: 0.75em;
-            margin-left: 0.1em;
-            align-self: baseline;
-          }
-          @media (max-width: 768px) {
-            .mithai-text {
-              font-size: 1em;
-            }
-            .version-text {
-              font-size: 0.8em;
-            }
-          }
-        `}</style>
       </section>
+
+      <style jsx>{`
+        .hero-banner-buttons {
+          position: absolute;
+          bottom: 8%;
+          left: 4%;
+          display: flex;
+          gap: 14px;
+          align-items: center;
+          z-index: 10;
+        }
+
+        .hero-banner-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background-color: #900c00;
+          color: #ffa520;
+          padding: 12px 32px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          text-decoration: none;
+          cursor: pointer;
+          border: 2px solid rgba(255, 165, 32, 0.3);
+          box-shadow: 0 6px 28px rgba(144, 12, 0, 0.45),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+          transition: all 280ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero-banner-btn::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 165, 32, 0.12),
+            transparent
+          );
+          transition: left 0.5s ease;
+        }
+
+        .hero-banner-btn:hover::before {
+          left: 100%;
+        }
+
+        .hero-banner-btn:hover {
+          background-color: #b01600;
+          transform: translateY(-2px);
+          box-shadow: 0 10px 36px rgba(144, 12, 0, 0.55),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+          border-color: rgba(255, 165, 32, 0.55);
+        }
+
+        .hero-banner-btn:active {
+          transform: translateY(0px);
+          box-shadow: 0 4px 16px rgba(144, 12, 0, 0.4);
+        }
+
+        .btn-icon {
+          flex-shrink: 0;
+        }
+
+        /* Responsive positioning */
+        @media (max-width: 768px) {
+          .hero-banner-buttons {
+            bottom: 6%;
+            left: 5%;
+            gap: 10px;
+          }
+
+          .hero-banner-btn {
+            padding: 10px 22px;
+            font-size: 12px;
+            gap: 6px;
+          }
+
+          .hero-banner-btn .btn-icon {
+            width: 14px;
+            height: 14px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-banner-buttons {
+            bottom: 5%;
+            gap: 8px;
+          }
+
+          .hero-banner-btn {
+            padding: 8px 18px;
+            font-size: 11px;
+          }
+        }
+
+        @media (min-width: 1200px) {
+          .hero-banner-btn {
+            padding: 14px 40px;
+            font-size: 15px;
+          }
+        }
+      `}</style>
     </div>
   )
 }
